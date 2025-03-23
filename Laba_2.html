@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Адаптивна навігація</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background: #333;
+            color: white;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 1rem;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            padding: 0.5rem;
+            transition: 0.3s;
+        }
+        .nav-links a:hover, .nav-links .active {
+            background: #555;
+            border-radius: 5px;
+        }
+        .dropdown {
+            position: relative;
+        }
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #444;
+            list-style: none;
+            padding: 0.5rem;
+            border-radius: 5px;
+        }
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        .search-bar {
+            border: none;
+            padding: 0.5rem;
+            border-radius: 5px;
+        }
+        .burger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        .burger div {
+            width: 25px;
+            height: 3px;
+            background: white;
+            margin: 5px;
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                background: #333;
+                width: 200px;
+                padding: 1rem;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .burger {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav-container">
+        <div class="logo"><img src="C:\Users\Al6\Downloads\Dior_Logo.svg.png"></div>
+        <ul class="nav-links">
+            <li><a href="#" class="active">Головна</a></li>
+            <li><a href="#">Про нас</a></li>
+            <li class="dropdown">
+                <a href="#">Сервіси</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Сервіс 1</a></li>
+                    <li><a href="#">Сервіс 2</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Контакти</a></li>
+        </ul>
+        <input type="text" class="search-bar" placeholder="Пошук...">
+        <div class="burger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </nav>
+    <script>
+        function toggleMenu() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
